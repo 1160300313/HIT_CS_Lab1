@@ -164,7 +164,7 @@ public class MagicSquare {
 		System.out.println(isLegalMagicSquare("src/P1/txt/4.txt"));
 		System.out.println(isLegalMagicSquare("src/P1/txt/5.txt"));
 		System.out.println(generateMagicSquare(111));
-		generateMagicSquare(111);
+		//generateMagicSquare(111);
 		System.out.println(isLegalMagicSquare("src/P1/txt/6.txt"));
 	}
 
