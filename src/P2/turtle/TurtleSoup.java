@@ -194,13 +194,13 @@ public class TurtleSoup implements Turtle {
 		// throw new RuntimeException("implement me!");
 		int i;
 		turtle.color(PenColor.BLUE);
-		for (i = 0; i < 50; i++) {
-			turtle.forward(50);
+		for (i = 0; i < 75; i++) {
+			turtle.forward(100);
 			turtle.turn(123);
 		}
 		turtle.color(PenColor.RED);
-		for (i = 0; i < 50; i++) {
-			turtle.forward(100);
+		for (i = 0; i < 75; i++) {
+			turtle.forward(200);
 			turtle.turn(123);
 		}
 	}
