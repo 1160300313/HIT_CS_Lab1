@@ -4,7 +4,11 @@
 package P2.turtle;
 
 import java.util.List;
+
+import javax.management.RuntimeErrorException;
+
 import java.util.ArrayList;
+import java.math.*;
 
 public class TurtleSoup implements Turtle {
 
@@ -58,8 +62,8 @@ public class TurtleSoup implements Turtle {
 	 * @return angle in degrees, where 0 <= angle < 360
 	 */
 	public static double calculateRegularPolygonAngle(int sides) {
-		//double angle = (sides - 2) * 180 / (double) sides;
-		//System.out.println(angle);
+		// double angle = (sides - 2) * 180 / (double) sides;
+		// System.out.println(angle);
 		return (double) (sides - 2) * 180 / (double) sides;
 	}
 
@@ -101,10 +105,10 @@ public class TurtleSoup implements Turtle {
 	public static void drawRegularPolygon(Turtle turtle, int sides, int sideLength) {
 		double angle;
 		angle = calculateRegularPolygonAngle(sides);
-		//System.out.println(angle);
+		// System.out.println(angle);
 		for (int i = 0; i < sides; i++) {
 			turtle.forward(sideLength);
-			turtle.turn(180-angle);
+			turtle.turn(180 - angle);
 		}
 	}
 
@@ -136,7 +140,14 @@ public class TurtleSoup implements Turtle {
 	 */
 	public static double calculateHeadingToPoint(double currentHeading, int currentX, int currentY, int targetX,
 			int targetY) {
-		throw new RuntimeException("implement me!");
+		// throw new RuntimeException("implement me!");
+		double angle;
+		angle = Math.atan2(targetY - currentY, targetX - currentX) / Math.PI * 180;
+		// System.out.println(angle);
+		double calAngle = 90 - angle - currentHeading;
+		if (calAngle < 0)
+			calAngle += 360.0;
+		return calAngle;
 	}
 
 	/**
@@ -157,7 +168,19 @@ public class TurtleSoup implements Turtle {
 	 *         points) == 0, otherwise of size (# of points) - 1
 	 */
 	public static List<Double> calculateHeadings(List<Integer> xCoords, List<Integer> yCoords) {
-		throw new RuntimeException("implement me!");
+		// throw new RuntimeException("implement me!");
+		if (xCoords.size() != yCoords.size())
+			throw new RuntimeException("Input Illegal!");
+		List<Double> angles = new ArrayList<>();
+		int i, size;
+		double angle=0.0;
+		size = xCoords.size();
+		for (i = 0; i < size-1; i++) {
+			angle = calculateHeadingToPoint(angle, xCoords.get(i), yCoords.get(i), xCoords.get(i + 1),
+					yCoords.get(i + 1));
+			angles.add(angle);
+		}
+		return angles;
 	}
 
 	/**
