@@ -5,10 +5,7 @@ package P2.turtle;
 
 import java.util.List;
 
-import javax.management.RuntimeErrorException;
-
 import java.util.ArrayList;
-import java.math.*;
 
 public class TurtleSoup implements Turtle {
 
@@ -173,9 +170,9 @@ public class TurtleSoup implements Turtle {
 			throw new RuntimeException("Input Illegal!");
 		List<Double> angles = new ArrayList<>();
 		int i, size;
-		double angle=0.0;
+		double angle = 0.0;
 		size = xCoords.size();
-		for (i = 0; i < size-1; i++) {
+		for (i = 0; i < size - 1; i++) {
 			angle = calculateHeadingToPoint(angle, xCoords.get(i), yCoords.get(i), xCoords.get(i + 1),
 					yCoords.get(i + 1));
 			angles.add(angle);
@@ -194,7 +191,18 @@ public class TurtleSoup implements Turtle {
 	 *            the turtle context
 	 */
 	public static void drawPersonalArt(Turtle turtle) {
-		throw new RuntimeException("implement me!");
+		// throw new RuntimeException("implement me!");
+		int i;
+		turtle.color(PenColor.BLUE);
+		for (i = 0; i < 50; i++) {
+			turtle.forward(50);
+			turtle.turn(123);
+		}
+		turtle.color(PenColor.RED);
+		for (i = 0; i < 50; i++) {
+			turtle.forward(100);
+			turtle.turn(123);
+		}
 	}
 
 	/**
@@ -208,9 +216,10 @@ public class TurtleSoup implements Turtle {
 	public static void main(String args[]) {
 		DrawableTurtle turtle = new DrawableTurtle();
 
-		drawSquare(turtle, 40);
+		// drawSquare(turtle, 40);
 
-		drawRegularPolygon(turtle, 7, 80);
+		// drawRegularPolygon(turtle, 7, 80);
+		drawPersonalArt(turtle);
 		// draw the window
 		turtle.draw();
 	}
