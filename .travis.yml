@@ -1,3 +1,14 @@
     language: java  
     jdk:  
       - oraclejdk8  
+    install: ant deps
+    script:
+  - jdk_switcher use oraclejdk8
+  - # do stuff with Java 8
+  - jdk_switcher use openjdk7
+  - # do stuff with Java 7
+  sudo: false
+addons:
+  apt:
+    packages:
+      - oracle-java8-installer
