@@ -43,7 +43,7 @@ public class TurtleSoup implements Turtle {
 	 */
 	public static void drawSquare(Turtle turtle, int sideLength) {
 		for (int i = 0; i < 4; i++) {
-			turtle.forward(40);
+			turtle.forward(sideLength);
 			turtle.turn(90);
 		}
 	}

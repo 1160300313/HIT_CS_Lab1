@@ -5,7 +5,13 @@ import java.util.ArrayList;
 
 public class FriendshipGraph {
 	public final int inf = 9999;
+	/**
+	 * 成员图矩阵，单向图
+	 */
 	private int[][] graph = new int[inf][inf];
+	/**
+	 * 记录成员人数
+	 */
 	private int members;
 	{
 		members = 0;
@@ -22,6 +28,9 @@ public class FriendshipGraph {
 		return this.graph;
 	}
 
+	/**
+	 * 成员列表
+	 */
 	private List<String> personList = new ArrayList<>();
 
 	/**
@@ -37,6 +46,7 @@ public class FriendshipGraph {
 			if (temp.equals(name)) {
 				System.out.println("Already exist!");
 				return;
+				// System.exit(0);
 			}
 		}
 		personList.add(name);
@@ -47,9 +57,12 @@ public class FriendshipGraph {
 	}
 
 	/**
+	 * 在两个成员之间加入一条单向边
 	 * 
 	 * @param srcPerson
+	 *            单向边起点
 	 * @param dstPerson
+	 *            单向边终点
 	 */
 	public void addEdge(Person srcPerson, Person dstPerson) {
 		int findex = personList.indexOf(srcPerson.getName());
@@ -60,7 +73,7 @@ public class FriendshipGraph {
 	}
 
 	/**
-	 * Use Dijkstra ……
+	 * 计算给定两个成员间的距离，使用Dijkstra算法
 	 * 
 	 * @param srcPerson
 	 * @param dstPerson

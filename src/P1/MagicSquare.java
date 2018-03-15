@@ -15,6 +15,7 @@ public class MagicSquare {
 				square[i][j] = 0;
 	}
 
+	@SuppressWarnings("resource")
 	private static boolean isLegalMagicSquare(String fileName) {
 		File file = new File(fileName);
 		BufferedReader reader = null;
