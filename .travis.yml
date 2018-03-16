@@ -1,6 +1,4 @@
 language: java  
-install: ant deps
+sudo: false
 jdk:
   - oraclejdk8
-  - oraclejdk9
-  - openjdk7
